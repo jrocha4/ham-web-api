@@ -1,0 +1,25 @@
+.container
+    .row
+        .col-md-7.col-sm-12.text-left
+            #intro-section
+                h1
+                    != lang.components['callToAction'].header
+                p.transparent-text
+                    != lang.components['callToAction'].body
+                .button.hidden-xs
+                    a( href="#" class="btn btn-primary" )
+                        != lang.buttons.learnMore
+        .col-md-5.col-sm-12.col-right
+            #registration-form
+                h4.text-center
+                    != lang.components['callToAction'].formTitle
+                form
+                    .form-group.input-group-lg
+                        input( type="text" name="name" class="form-control" placeholder=lang.forms.labels.name )
+                    .form-group.input-group-lg
+                        input( type="email" name="email" class="form-control" placeholder=lang.forms.labels.email )
+                    .form-group.input-group-lg
+                        textarea( name="message" id="cf-message" class="form-control" rows="8" placeholder=lang.forms.labels.message )
+                    .form-group.input-group-lg
+                        button.btn.btn-primary.btn-block.btn-lg
+                            != lang.buttons.getStarted

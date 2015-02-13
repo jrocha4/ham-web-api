@@ -1,0 +1,87 @@
+doctype
+html(lang="en")
+    include ../common/_head
+    body
+        header( class="header" id="home" )
+            div( class="overlay-layer" )
+               include ../components/_nav
+
+               .container
+                  .row
+                     .col-md-4.col-sm-12.text-left
+                        div.panel-group( id="accordion")
+                           .panel.panel-default
+                              each val in taxonomy.children
+                                 .panel-heading
+                                    a.accordion-toggle( href="#coll"+taxonomy.children.indexOf(val) data-toggle="collapse" data-parent="accordion")
+                                       != val.name
+
+                                    a.pull-right(href="/knowledge/information_technology/"+val.id)
+                                       != val.total
+
+                                 div.panel-collapse.collapse( id="coll"+taxonomy.children.indexOf(val) )
+                                    .panel-body
+                                       each val2 in val.children
+                                          .panel-heading
+                                             a.accordion-toggle( data-toggle='collapse' href="#coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2) )
+                                                != val2.name
+                                             a.pull-right(href="/knowledge/information_technology/"+val2.id)
+                                                != val2.total
+
+                                          div.panel-collapse.collapse( id="coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2) )
+                                             .panel-body
+                                                each val3 in val2.children
+                                                   .panel-heading
+                                                      a.accordion-toggle( data-toggle='collapse' href="#coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3))
+                                                         != val3.name
+                                                      a.pull-right(href="/knowledge/information_technology/"+val3.id)
+                                                         != val3.total
+
+                                                   div.panel-collapse.collapse( id="coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3) )
+                                                      .panel-body
+                                                         each val4 in val3.children
+                                                            .panel-heading
+                                                               a.accordion-toggle( data-toggle='collapse' href="#coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3)+val3.children.indexOf(val4) )
+                                                                 != val4.name
+                                                               a.pull-right(href="/knowledge/information_technology/"+val4.id)
+                                                                 != val4.total
+
+                                                            div.panel-collapse.collapse( id="coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3)+val3.children.indexOf(val4) )
+                                                               .panel-body
+                                                                  each val5 in val4.children
+                                                                     .panel-heading
+                                                                        a.accordion-toggle( data-toggle='collapse' href="#coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3)+val3.children.indexOf(val4)+val4.children.indexOf(val5) )
+                                                                           != val5.name
+                                                                        a.pull-right(href="/knowledge/information_technology/"+val5.id)
+                                                                           != val.total
+
+                                                                     div.panel-collapse.collapse( id="coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3)+val3.children.indexOf(val4)+val4.children.indexOf(val5) )
+                                                                        .panel-body
+                                                                           each val6 in val5.children
+                                                                              .panel-heading
+                                                                                 a.accordion-toggle( data-toggle='collapse' href="#coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3)+val3.children.indexOf(val4)+val4.children.indexOf(val5)+val5.children.indexOf(val6))
+                                                                                    != val6.name
+                                                                                 a.pull-right(href="/knowledge/information_technology/"+val6.id)
+                                                                                    != val6.total
+
+                                                                              div.panel-collapse.collapse( id="coll"+taxonomy.children.indexOf(val)+val.children.indexOf(val2)+val2.children.indexOf(val3)+val3.children.indexOf(val4)+val4.children.indexOf(val5)+val5.children.indexOf(val6) )
+                                                                                 .panel-body
+                                                                                    each val7 in val6.children
+                                                                                       .panel-heading
+                                                                                          a.accordion-toggle( data-toggle='collapse' href="#")
+                                                                                             != val7.name
+                                                                                          a.pull-right(href="/knowledge/information_technology/"+val7.id)
+                                                                                             != val7.total
+
+
+
+                     .col-md-7.col-sm-12.col-right
+                        each val in content
+                          .panel-body
+                             != val.node.Title
+                             hr
+                             != val.node.Body
+
+
+
+    include ../common/_scriptUtil

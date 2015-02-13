@@ -1,0 +1,29 @@
+header( class="header" id="home" )
+    div( class="overlay-layer" )
+        .navbar.navbar-default.navbar-fixed-top
+            .container
+                .navbar-header
+                    button( type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#seed-navigation" )
+                        span.sr-only
+                            | Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+
+                    a( class="navbar-brand" href="#" )
+                        | [logo]
+
+                #seed-navigation.navbar-collapse.collapse
+                    ul.nav.navbar-nav.navbar-right.small-text
+                        li
+                            a( href="/logout" )
+                                | Logout
+        .container
+            .row
+                .col-md-12.col-sm-12.text-center
+                    #intro-section
+                        h1
+                            | Welcome
+                        .button.hidden-xs
+                            a( href="#section1" class="btn btn-primary" )
+                                | Learn More

@@ -1,0 +1,17 @@
+doctype
+html(lang="en")
+    include ../common/_head
+    body
+        header( class="header" id="home" )
+            div( class="overlay-layer" )
+               include ../common/_navigation
+
+               .container
+                  .row
+                     .col-md-12.col-sm-12.text-left
+                         a( href="/knowledge/"+domain )
+                            | Back
+                         !=node.node.Body
+
+
+    include ../common/_scriptUtil

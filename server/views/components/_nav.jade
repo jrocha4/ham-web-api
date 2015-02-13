@@ -1,0 +1,36 @@
+.navbar.navbar-default.navbar-fixed-top
+    .container
+        .navbar-header
+            button( type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#seed-navigation" )
+                span.sr-only
+                    != lang.sr.toggleNavigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+
+            a( class="navbar-brand" href="/" )
+                != lang.components.navigation.title
+
+        #seed-navigation.navbar-collapse.collapse
+            ul.nav.navbar-nav
+                li
+                    a( href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false")
+                        != lang.components.navigation.domains.title
+                        span.caret
+                    ul( class="dropdown-menu" role="menu")
+                        each val in navigation
+                          li
+                            a( href='/knowledge/'+val.node.machineName)
+                              != val.node.name
+                        li.divider
+                        li.text-center
+                            small
+                                != lang.components.navigation.domains.moreToCome
+
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a( href="/app#/login" )
+                        != lang.components.navigation.login
+                li
+                    a( href="/app#/register")
+                        != lang.components.navigation.register

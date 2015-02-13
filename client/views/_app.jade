@@ -1,0 +1,20 @@
+doctype
+html(lang="en", itemtype="http://schema.org/WebPage" itemscope ng-app="baseApp")
+
+  include common/_head
+  
+  body(ng-cloak)
+    header( class="header" id="home" )
+      div( class="overlay-layer" )
+
+        include components/_nav
+
+        div(ng-view)
+
+    include common/_scriptApp
+  script
+    | $(document).on('click','.navbar-collapse.in',function(e) {
+    |   if( $(e.target).is('a') && ( $(e.target).attr('class') != 'dropdown-toggle' ) ) {
+    |     $(this).collapse('hide');
+    |   }
+    | });
