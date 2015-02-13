@@ -7,14 +7,14 @@ var Path = require('path'),
 module.exports = {
   development: {
     datastoreURI: 'mongodb://localhost/development',
-    cmsURL: "http://cms-dev.jesusrocha.info",
+    cmsURL: 'http://localhost:8127/webtech',
     rootPath: rootPath,
     port: 8042,
     lang: language
   },
   test: {
     datastoreURI: 'mongodb://localhost/testing',
-    cmsURL: "http://cms-dev.jesusrocha.info",
+    cmsURL: '',
     rootPath: rootPath,
     port: 8043,
     lang: language
@@ -22,7 +22,7 @@ module.exports = {
 
   stage: {
     datastoreURI: 'mongodb://localhost/staging',
-    cmsURL: "http://cms-stage.jesusrocha.info",
+    cmsURL: '',
     rootPath: rootPath,
     port: 8041,
     lang: language
@@ -30,7 +30,7 @@ module.exports = {
 
   production: {
     datastoreURI: 'mongodb://localhost/production',
-    cmsURL: "http://cms.jesusrocha.info",
+    cmsURL: '',
     rootPath: rootPath,
     port: 8040,
     lang: language
