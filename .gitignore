@@ -2,6 +2,7 @@
 .idea/
 bower_components/
 mongoDB/data/
+mongoDB/log/
 node_modules/
 logs/
 *.log
