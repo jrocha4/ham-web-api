@@ -34,30 +34,36 @@ var User = require('mongoose').model('User'),
 
 
 function login (request, reply) {
-  if (request.auth.isAuthenticated) { return reply.redirect('/'); }
-  if (request.method === 'get')     { return reply.file('html/index.html'); }
+  if (request.auth.isAuthenticated) { return reply.redirect('/app#/'); }
+  if (request.method === 'get')     { return reply.redirect('/app#/login'); }
 
   User.login(request.payload.email, request.payload.password, function (err, user) {
     if (err) { return reply(Boom.badRequest(err)); }
 
     request.auth.session.set({_id: user._id});
-    reply.redirect('app#/feed');
+    reply.redirect('/app#/');
   });
 }
 
 
 function join (request, reply) {
-  if (request.auth.isAuthenticated) { return reply.redirect('/'); }
-  if (request.method === 'get')     { return reply.file('html/index.html'); }
+  if (request.auth.isAuthenticated) { return reply.redirect('/app#/'); }
+  if (request.method === 'get')     { return reply.redirect('/app#/register'); }
 
   var newUser = new User();
   newUser.email = request.payload.email;
   newUser.password = request.payload.password;
+  if( !server.needAdmin ){
+    newUser.role = 'user';
+  }else{
+    newUser.role = 'admin';
+    server.needAdmin = false;
+  }
   newUser.save(function (err, user) {
     if (err) { return reply(Boom.badRequest(err)); }
     
     request.auth.session.set({_id: user._id});
-    reply.redirect('app#/feed');
+    reply.redirect('/app#/');
   });
 }
 

@@ -1,5 +1,5 @@
 angular.module('baseApp.services')
-  .factory('currentUser', ['$location', '$http', '$rootScope', function ($location, $http, $rootScope) {
+  .factory('currentUser', ['$state', '$location', '$http', '$rootScope', function ($state, $location, $http, $rootScope) {
     'use strict';
 
     var currentUser;
@@ -7,7 +7,8 @@ angular.module('baseApp.services')
     function login (user) {
       currentUser = user;
       $rootScope.$emit('userLoggedIn');
-      $location.path('/');
+      $state.transitionTo('home');
+      //$location.path('/');
     }
 
     if( ['/login','/register','/recover'].indexOf( $location.path() ) === -1 ){
@@ -15,7 +16,8 @@ angular.module('baseApp.services')
         .get('/session', {})
         .error(function () {
           console.log('user not authenticated');
-          $location.path('/login');
+          $state.transitionTo('login');
+          //$location.path('/login');
         })
         .success(login);
     }

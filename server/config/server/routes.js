@@ -21,7 +21,7 @@ module.exports = function (config, server) {
 
   server.utils = {
     getNav: getNavigation
-  }
+  };
   server.lang = config.lang.get();
 
   require('../../controllers/auth.js')(server);

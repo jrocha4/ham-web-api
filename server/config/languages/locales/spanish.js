@@ -2,16 +2,16 @@
 
 var spanishLanguage = {
     buttons: {
-        learnMore: "Aprende Mas",
-        getStarted: "Empiesa"
+        learnMore: 'Aprende Mas',
+        getStarted: 'Empiesa'
     },
     components: {
         callToAction: {
-            header: "Facil y Seguro",
-            body: "Un parafo en espano para comparar"
+            header: 'Facil y Seguro',
+            body: 'Un parafo en espano para comparar'
         }
     }
-}
+};
 
 
 module.exports = function(){
@@ -19,5 +19,5 @@ module.exports = function(){
     return {
         name: 'spanish',
         lang: spanishLanguage
-    }
-}
+    };
+};

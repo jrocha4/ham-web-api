@@ -10,7 +10,7 @@ var config = require('./config/environments/variables')[process.env.NODE_ENV],
     server = require('./config/server/hapi.js')(config);
 
 // setup datastore
-require('./config/storage/mongoose.js')(config);
+require('./config/storage/mongoose.js')(config, server);
 
 // setup routes
 require('./config/server/routes.js')(config, server);

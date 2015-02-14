@@ -6,7 +6,7 @@ var lang1 = require('./locales/english')(),
 
 module.exports = {
     get: function(){
-      return selectedLanguage
+      return selectedLanguage;
     },
     setlang: function( langName ){
         switch( langName ){
@@ -22,4 +22,4 @@ module.exports = {
     getLangs: function(){
         return [ lang1.name, lang2.name ];
     }
-}
+};

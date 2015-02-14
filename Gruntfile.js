@@ -56,6 +56,7 @@ module.exports = function (grunt) {
       angular: {
         src: [
           'bower_components/angular/angular.js',
+          'bower_components/angular-ui-router/release/angular-ui-router.js',
           'bower_components/angular-resource/angular-resource.js',
           'bower_components/angular-route/angular-route.js',
           'bower_components/angular-cookies/angular-cookies.js',

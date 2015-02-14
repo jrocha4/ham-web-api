@@ -3,20 +3,20 @@
  */
 
 angular.module('baseApp', [
-  'ngRoute',
+  'ui.router',
   'angular-loading-bar',
   'baseApp.services',
   'baseApp.directives',
   'baseApp.controllers'
 ]);
 
-angular.module('baseApp').config(function ($routeProvider, $locationProvider) {
+angular.module('baseApp').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   'use strict';
 
   $locationProvider
       .html5Mode(false);
 
-  $routeProvider
+  /*$routeProvider
       .when('/login', {
         templateUrl: '/assets/html/auth/login'
       })
@@ -30,7 +30,28 @@ angular.module('baseApp').config(function ($routeProvider, $locationProvider) {
         templateUrl: '/assets/html/landingPages/dashboard',
         controller: null
       })
-      .otherwise({redirectTo: '/'});
+      .otherwise({redirectTo: '/'});*/
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: '/assets/html/views/dashboard'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: '/assets/html/auth/login',
+      controller: 'authController'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: '/assets/html/auth/register'
+    })
+    .state('recover', {
+      url: '/recover',
+      templateUrl: '/assets/html/auth/recover'
+    });
+
+  $urlRouterProvider.otherwise('/');
+
 });
 
 angular.module('baseApp.services', ['ngResource']);

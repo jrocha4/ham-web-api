@@ -36,7 +36,8 @@ schema = mongoose.Schema({
     index: true
   },
   salt:     {type: String },
-  password: {type: String }
+  password: {type: String },
+  role: String
 });
 
 schema.methods.authenticate = function(passwordToMatch) {

@@ -10,7 +10,9 @@ var englishLanguage = {
   components: {
     callToAction: {
       header: 'Reliable, Simple and Secure Platform',
-      body: 'Sandboxing UDID content management system ruby on rails continuous deployment big data infographic. Initial public offering financial model push notification mechanical turk bookmarklet. Term sheet convertible note colluding bootstrapping.',
+      body: 'Sandboxing UDID content management system ruby on rails continuous deployment big data infographic. '+
+      'Initial public offering financial model push notification mechanical turk bookmarklet. Term sheet convertible'+
+      'note colluding bootstrapping.',
       formTitle: 'Get 1 Month FREE Trial Now'
     }
   },
@@ -36,12 +38,12 @@ englishLanguage.components.navigation = {
   register: englishLanguage.buttons.register,
   logout: 'Logout',
   myAccount: 'My Account'
-}
+};
 
 
 module.exports = function(){
   return {
     name: 'english',
     lang: englishLanguage
-  }
-}
+  };
+};
